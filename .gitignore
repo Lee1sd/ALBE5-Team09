@@ -1,0 +1,17 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+gen/
+.gradle/
+build/
+
+### Java ###
+*.class
+*.log
+
+### MacOS ###
+.DS_Store
+
+### Windows ###
+Thumbs.db
