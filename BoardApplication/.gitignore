@@ -1,1 +1,32 @@
-/bin/
+### Java ###
+*.class
+*.log
+*.jar
+*.war
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+gen/
+
+### Visual Studio Code ###
+.vscode/
+.history/
+bin/
+
+### Eclipse ###
+.metadata/
+.settings/
+.project
+.classpath
+.loadpath
+.factorypath
+bin/
+*.launch
+
+### Build Results ###
+# 순수 자바 프로젝트라면 컴파일된 파일들이 생성되는 폴더들입니다.
+out/
+bin/
+target/
