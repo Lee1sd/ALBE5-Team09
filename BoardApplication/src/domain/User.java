@@ -1,20 +1,19 @@
 package domain;
 
 public class User {
-	private int user_id = 1;
-	private String login_id; // username 겸
-	private String login_pw;
+	private String loginId; // 사용자 아아디
+	private String loginPw; // 사용자 비빌번호
 	
-	public User(String login_id, String login_pw) {
-		this.login_id = login_id;
-		this.login_pw = login_pw;
+	public User(String loginId, String loginPw) {
+		this.loginId = loginId;
+		this.loginPw = loginPw;
 	}
 	
 	public String getLoginId() {
-		return this.login_id;
+		return this.loginId;
 	}
 	
 	public String getLoginPw() {
-		return this.login_pw;
+		return this.loginPw;
 	}
 }
