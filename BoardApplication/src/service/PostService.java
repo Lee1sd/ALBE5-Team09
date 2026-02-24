@@ -31,11 +31,17 @@ public class PostService { //CRUD
 		
 	}
 	
-	
-	public void updatePost(int postId, String title, String content) {
-		
+	//게시글 제목 내용 변경
+	public void updatePostTitle(int postId, String updatedPostTitle){
+
 	}
-	
+
+	//게시글 내용 변경
+	public void updatePostContent(int postId, String updatedPostContent){
+
+	}
+
+	//게시글 삭제
 	public void deletePost(int postId) {
 		
 	}
