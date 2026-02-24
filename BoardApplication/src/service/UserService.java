@@ -2,7 +2,7 @@ package service;
 
 import java.util.ArrayList;
 import domain.User;
-import repositroy.UserRepository;
+import repository.UserRepository;
 
 public class UserService {
 	UserRepository repo = new UserRepository();
