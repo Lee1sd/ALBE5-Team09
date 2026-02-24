@@ -9,14 +9,14 @@ public class Post {
 	private String postContent;
 	private LocalDateTime postCreateDate;
 	private LocalDateTime postUpdatedDate;
-	private int userId;
+	private String loginId;
 	
 	//생성자
-	public Post(int postId, String postTitle, String postContent, int userId) {
+	public Post(int postId, String postTitle, String postContent, String loginId) {
 		this.postId = postId;
 		this.postContent = postContent;
 		this.postTitle = postTitle;
-		this.userId = userId;
+		this.loginId = loginId;
 		this.postCreateDate = LocalDateTime.now();
 		this.postUpdatedDate = LocalDateTime.now();
 		
@@ -63,12 +63,12 @@ public class Post {
 		this.postUpdatedDate = postUpdatedDate;
 	}
 
-	public int getUserId() {
-		return userId;
+	public String getUserId() {
+		return loginId;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserId(String loginId) {
+		this.loginId = loginId;
 	}
 	
 	
