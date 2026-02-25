@@ -5,22 +5,24 @@ import domain.User;
 import repository.UserRepository;
 import runner.BoardApplication;
 
+/** UserService 에 대해..
+ * UserService는 UserRepository의 메소드를 활용하여 회원가입과 로그인 기능을 수행하는 클래스입니다.
+ * 	register 메소드는 회원가입을 수행하며, 내부에 중복과 유효성 검사를 UserRepository에서 가져온 ArrayList를 기반으로 수행합니다. 
+ * 	login 메소드는 로그인 기능을 수행하며, Repository의 findByLoginId 메소드를 활용하여 아이디가 존재하는지 확인하고, 
+ *	존재한다면 해당 User 객체의 비밀번호와 입력받은 비밀번호가 일치하는지 검사합니다.
+ * 
+ * [ METHOD 설명 ]
+ * .register(id, pw) 			// 회원가입을 수행합니다.
+ * .login(id, pw) 				// 로그인 기능을 수행합니다. + 세션 생성
+ * .logout() 					// 로그아웃 기능을 수행합니다.
+ * .isDuplicate(id) 			// 아이디 중복을 검사합니다
+ * .isValidate(id, pw) 			// 아이디와 비번이 유효한지 검사합니다
+*/
 public class UserService {
 	Scanner sc = new Scanner(System.in);
 	UserRepository userRepository = new UserRepository();
-	String userID;
-	String userPW;
-	
-	// 회원가입 메소드
+
 	public void register() {
-		/**
-		 * 사용자로부터 생성할 아이디와 비밀번호를 입력받고
-		 * 중복을 검사하고
-		 * 유효성을 검사하며
-		 * User 객체 생성을하고
-		 * 해당 객체는 UserRepository에 저장해야만한다
-		 */
-		
 		System.out.println("\n회원가입을 진행합니다");
 		System.out.print("[사용자 아이디 입력] >> ");
 		String id = sc.nextLine();
