@@ -1,9 +1,11 @@
 package service;
 
 import java.time.LocalDateTime;
+import runner.BoardApplication;
 import java.util.Collection;
 
 import domain.Post;
+import domain.User;
 import repository.PostRepository;
 
 public class PostService { //CRUD
@@ -11,10 +13,13 @@ public class PostService { //CRUD
 	 private int nextPostId = 1;
 	
 	//작성
-	public int createPost(String postTitle, String postContent, int userId){
+	public int createPost(String postTitle, String postContent){
+
+	    User loginUser = BoardApplication.session;
+
 		//번호 생성,post객체 생성, 저장 호출, postId반환
 		int postId = nextPostId++;
-		Post post = new Post(postId, postTitle, postContent, userId);
+		Post post = new Post(postId, postTitle, postContent, loginUser.getLoginId());
 		postRepository.save(post);
 		return postId;
 	}

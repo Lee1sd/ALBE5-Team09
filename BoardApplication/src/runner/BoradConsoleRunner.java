@@ -163,8 +163,14 @@ public class BoradConsoleRunner {
     }
 
     private void createPost() {
-        System.out.println("user 님의 게시글을 작성합니다.");
-        //System.out.println(loginUserId + " 님의 게시글을 작성합니다.");
+    	
+    	if (BoardApplication.session == null) {
+	        System.out.println("로그인 후 이용 가능합니다.");
+	        return;
+	    }
+    	
+        System.out.println(BoardApplication.session.getLoginId() +"님의 게시글을 작성합니다.");
+        
 
         System.out.print("[게시글 제목 입력] >> ");
         String title = sc.nextLine();
@@ -172,7 +178,7 @@ public class BoradConsoleRunner {
         System.out.print("[게시글 내용 입력] >> ");
         String content = sc.nextLine();
 
-       int postId = postService.createPost(title, content, 1);
+       int postId = postService.createPost(title, content);
 
         System.out.println("게시글 작성을 완료하였습니다.");
         System.out.print("게시글 번호: " + postId +"\n");
