@@ -35,15 +35,26 @@ public class PostService { //CRUD
 		return postRepository.findById(postId);
 		
 	}
-	
-	
-	public void updatePost(int postId, String title, String content) {
-		
+
+	// 게시글 제목 변경
+	public void updatePostTitle(int postId, String updatedPostTitle){
+		Post post = postRepository.updateTitle(postId, updatedPostTitle);
+		if (post != null) {
+			post.setUpdatedDate(LocalDateTime.now()); // 수정 시간 업데이트
+		}
 	}
-	
+
+	// 게시글 내용 변경
+	public void updatePostContent(int postId, String updatedPostContent){
+		Post post = postRepository.updateContent(postId, updatedPostContent);
+		if (post != null) {
+			post.setUpdatedDate(LocalDateTime.now()); // 수정 시간 업데이트
+		}
+	}
+
+	// 게시글 삭제
 	public void deletePost(int postId) {
-		
+		postRepository.delete(postId);
 	}
-	
 
 }
