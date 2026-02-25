@@ -5,10 +5,11 @@ import java.util.Scanner;
 
 import domain.Post;
 import service.PostService;
+import service.UserService;
 
 public class BoradConsoleRunner {
 	// 멤버 필드
-	//private UserService userService = new UserService(); // 아진 구현 전(주석처리)
+	private UserService userService = new UserService(); // 아진 구현 전(주석처리)
 	private Scanner sc = new Scanner(System.in);
 	private boolean isRunning = false; // 실행 여부
 	private int selectNum = -1; // 실행 선택 메뉴 번호
@@ -93,16 +94,13 @@ public class BoradConsoleRunner {
 		}
 		else if(selectNum == 3) { // 로그아웃 & 로그인
 			if(BoardApplication.session == null) { // 로그아웃 사용자
-				System.out.println("\n로그인 기능 구현 진행중...");
-				//userService.login();
+				userService.login();
 			}else { // 로그인 사용자
-				System.out.println("\n로그아웃 기능 구현 진행중...");
-				//userService.logout();
+				userService.logout();
 			}
 		}
 		else if(selectNum == 4) { // 회원가입
-			System.out.println("\n회원가입 기능 구현 진행중...");
-			//userService.register();
+			userService.register();
 		}
 	}
 	
@@ -112,7 +110,7 @@ public class BoradConsoleRunner {
 
         while (true) {
 
-            System.out.println("원하시는 게시판 기능을 선택해주세요.");
+            System.out.println("\n원하시는 게시판 기능을 선택해주세요.");
             System.out.println("1. 게시판 목록 조회");
             System.out.println("2. 게시글 상세 조회");
             System.out.println("3. 게시글 작성");
