@@ -117,6 +117,7 @@ public class BoradConsoleRunner {
             System.out.println("2. 게시글 상세 조회");
             System.out.println("3. 게시글 작성");
             System.out.println("4. 게시글 수정");
+            System.out.println("5. 게시글 삭제");
             System.out.println("0. 뒤로가기");
             System.out.print("[번호 입력] >> ");
 
@@ -139,6 +140,10 @@ public class BoradConsoleRunner {
 
                 case 4:
                     updatePost();
+                    break;
+
+                case 5:
+                    deletePost();
                     break;
 
                 case 0:
@@ -184,43 +189,49 @@ public class BoradConsoleRunner {
     }
 
     private void updatePost(){
-        System.out.println("수정할 게시글의 id를 입력해주세요 : ");
+        System.out.print("수정할 게시글의 id를 입력해주세요 : ");
         int postId = Integer.parseInt(sc.nextLine());
 
-        //입력 받은 postId 있는지 확인
         Post post = postService.getPostById(postId);
         if(post == null){
             System.out.println("해당 게시글은 존재하지 않습니다 : " + postId);
-        }else{
-            System.out.println("수정할 부분 선택");
-            System.out.println("1. 제목");
-            System.out.println("2. 내용");
-            System.out.println("0. 이전으로 돌아가기");
+        } else {
+            System.out.println("수정할 부분 선택 (1. 제목 / 2. 내용 / 0. 취소)");
             System.out.print("[번호 입력] >> ");
-
             int select = Integer.parseInt(sc.nextLine());
 
             switch(select){
                 case 1:
-                    System.out.println("변경전 게시글 제목 : " + post.getTitle());
-                    System.out.println("변경할 제목 입력 >> ");
+                    System.out.print("변경할 제목 입력 >> ");
                     String updatedPostTitle = sc.nextLine();
                     postService.updatePostTitle(postId, updatedPostTitle);
-                    System.out.println("변경 되었습니다.");
-                    boardView.printPostDetail(post);
-
+                    System.out.println("제목이 변경 되었습니다.");
+                    break;
                 case 2:
-                    System.out.println("변경전 게시글 내용 : " + post.getContent());
-                    System.out.println("변경할 내용 입력 >> ");
+                    System.out.print("변경할 내용 입력 >> ");
                     String updatedPostContent = sc.nextLine();
                     postService.updatePostContent(postId, updatedPostContent);
-                    System.out.println("변경 되었습니다.");
-                    boardView.printPostDetail(post);
+                    System.out.println("내용이 변경 되었습니다.");
+                    break;
                 case 0:
-
+                    return;
             }
+            boardView.printPostDetail(post);
         }
+    }
 
+    // 삭제 기능 구현
+    private void deletePost() {
+        System.out.print("삭제할 게시글의 id를 입력해주세요 : ");
+        int postId = Integer.parseInt(sc.nextLine());
+
+        Post post = postService.getPostById(postId);
+        if (post == null) {
+            System.out.println("해당 게시글이 존재하지 않습니다.");
+        } else {
+            postService.deletePost(postId);
+            System.out.println(postId + "번 게시글이 삭제되었습니다.");
+        }
     }
 
 
