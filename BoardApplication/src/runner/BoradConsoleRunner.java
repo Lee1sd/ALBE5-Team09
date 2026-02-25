@@ -193,6 +193,11 @@ public class BoradConsoleRunner {
     }
 
     private void updatePost(){
+    	if (BoardApplication.session == null) {
+	        System.out.println("로그인 후 이용 가능합니다.");
+	        return;
+	    }
+    	
         System.out.print("수정할 게시글의 id를 입력해주세요 : ");
         int postId = Integer.parseInt(sc.nextLine());
 
@@ -226,6 +231,11 @@ public class BoradConsoleRunner {
 
     // 삭제 기능 구현
     private void deletePost() {
+    	if (BoardApplication.session == null) {
+	        System.out.println("로그인 후 이용 가능합니다.");
+	        return;
+	    }
+    	
         System.out.print("삭제할 게시글의 id를 입력해주세요 : ");
         int postId = Integer.parseInt(sc.nextLine());
 
