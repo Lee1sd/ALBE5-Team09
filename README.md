@@ -169,6 +169,8 @@
             └── PostRepository.java          # Post 테이블
 ```
 <br />
+
+<h2 align="center">5. 설계</h2>
 <table align="center" style="width:100%; text-align:center;">
   <!-- 제목 줄 -->
   <tr>
