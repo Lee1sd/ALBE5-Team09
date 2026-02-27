@@ -169,26 +169,23 @@
             └── PostRepository.java          # Post 테이블
 ```
 <br />
-<h2 align="center">5. 설계</h2>
-<h3 align="center">5-1. Runner</h3>
-<div align="center">
-  <img src="./github_src/runner.png">
-</div>
+<table align="center" style="width:100%; text-align:center;">
+  <!-- 제목 줄 -->
+  <tr>
+    <td width="25%"><h3>5-1. Runner</h3></td>
+    <td width="25%"><h3>5-2. Domain</h3></td>
+    <td width="25%"><h3>5-3. Service</h3></td>
+    <td width="25%"><h3>5-4. Repository</h3></td>
+  </tr>
 
-<h3 align="center">5-2. Domain</h3>
-<div align="center">
-  <img src="./github_src/domain.png">
-</div>
-
-<h3 align="center">5-3. Service</h3>
-<div align="center">
-  <img src="./github_src/service.png">
-</div>
-
-<h3 align="center">5-4. Repository</h3>
-<div align="center">
-  <img src="./github_src/repository.png">
-</div>
+  <!-- 이미지 줄 -->
+  <tr valign="top">
+    <td><img src="./github_src/runner.png" width="250"></td>
+    <td><img src="./github_src/domain.png" width="250"></td>
+    <td><img src="./github_src/service.png" width="250"></td>
+    <td><img src="./github_src/repository.png" width="250"></td>
+  </tr>
+</table>
 <br />
 <h2 align="center">6. Git 규칙</h2>
 
